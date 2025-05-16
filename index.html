@@ -3,31 +3,124 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sidak’s Portfolio</title>
+  <title>Sidak Portfolio - Minimal Header</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 40px; background:#f5f5f5; }
-    h1 { color: #333; }
-    .container { max-width: 700px; margin: auto; background: white; padding: 20px; border-radius: 8px; }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f8f9fa;
+      color: #444;
+      line-height: 1.6;
+    }
+    header {
+      background: #e1e4e8;
+      padding: 15px 20px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 1.4rem;
+      color: #2f3437;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+      letter-spacing: 1px;
+      user-select: none;
+      border-bottom: 1px solid #ccc;
+      position: relative;
+    }
+    header small {
+      display: block;
+      font-weight: 400;
+      font-size: 0.85rem;
+      color: #6c757d;
+      margin-top: 4px;
+    }
+    main {
+      max-width: 640px;
+      margin: 50px auto 70px;
+      padding: 0 20px;
+    }
+    section {
+      background: white;
+      border-radius: 12px;
+      padding: 30px 25px;
+      margin-bottom: 40px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+    h2 {
+      color: #6c757d;
+      margin-top: 0;
+      margin-bottom: 20px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      font-size: 1.5rem;
+    }
+    p {
+      font-size: 1rem;
+      color: #555;
+      max-width: 580px;
+      margin: 0 auto;
+    }
+    a {
+      color: #6c757d;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #495057;
+    }
     a.button {
-      display: inline-block; margin-top: 20px; padding: 10px 20px;
-      background: #007bff; color: white; text-decoration: none; border-radius: 5px;
+      display: inline-block;
+      margin-top: 25px;
+      padding: 12px 30px;
+      background: #6c757d;
+      color: white;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+    a.button:hover {
+      background: #495057;
+    }
+    footer {
+      text-align: center;
+      color: #999;
+      font-size: 0.85rem;
+      margin-bottom: 25px;
+      user-select: none;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Hi, I’m Sidak</h1>
-    <p>Passionate student and aspiring developer. I love building web projects and learning new tech.</p>
 
+<header>
+  I'm Sidak
+  <small>Tech Enthusiast | Gamer | Coder | Student</small>
+</header>
+
+<main>
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      I’m Sidak — a tech enthusiast passionate about creating clean and modern websites. Alongside coding, I enjoy gaming and keeping up with the latest technology trends. Always eager to learn and grow, I strive to build projects that are both functional and visually appealing. Combining my love for tech and gaming inspires me to bring creativity and innovation to everything I do.
+    </p>
+  </section>
+
+  <section id="projects">
     <h2>Projects</h2>
-    <ul>
-      <li><a href="https://github.com/sidakdeep-69/odin-recipe">Odin Recipe Project</a></li>
-      <li><a href="#">Your Next Project</a></li>
-    </ul>
+    <p>
+      <a href="https://sidakdeep-69.github.io/odin-project-2.0/" target="_blank" rel="noopener">Odin Recipe</a> — A responsive recipe webpage built with HTML and CSS, showcasing clean layout and structure.
+    </p>
+  </section>
 
+  <section id="contact">
     <h2>Contact</h2>
-    <p>Feel free to reach out!</p>
-    <a href="mailto:your.email@example.com" class="button">Get in Touch</a>
-  </div>
+    <p>You can reach me via email at <a href="mailto:sidakdeep0804@gmail.com">sidakdeep0804@gmail.com</a></p>
+    <a href="mailto:sidak@sidak.site" class="button">Get in Touch</a>
+  </section>
+</main>
+
+<footer>© 2025 Sidak</footer>
+
 </body>
 </html>
