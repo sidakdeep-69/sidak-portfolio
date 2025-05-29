@@ -3,162 +3,213 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sidak Portfolio - Minimal Header</title>
+  <link rel="icon" type="image/png" href="images/code_icon.jpg">
+  <title>Sidak Portfolio</title>
   <style>
-    body {
+    :root {
+      --bg: #f0f2f5;
+      --sidebar-bg: #f9fafb;
+      --text-color: #1f2937;
+      --accent-color: #111111;
+      --card-bg: #ffffff;
+      --hover-bg: #e2e6f0;
+      --link-color: #111111;
+      --link-hover: #2563eb;
+      --highlight-bg: #dbeafe;
+    }
+
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f8f9fa;
-      color: #444;
-      line-height: 1.6;
+      background-color: var(--bg);
+      color: var(--text-color);
+      display: flex;
+      height: 100vh;
     }
 
-    header {
-      background: #e1e4e8;
-      padding: 15px 20px;
-      text-align: center;
-      font-weight: 600;
-      font-size: 1.4rem;
-      color: #2f3437;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-      letter-spacing: 1px;
+    aside {
+      width: 240px;
+      background: var(--sidebar-bg);
+      padding: 40px 25px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-right: 1px solid #d1d5db;
       user-select: none;
-      border-bottom: 1px solid #ccc;
-      position: relative;
     }
 
-    header small {
+    aside h1 {
+      font-size: 2rem;
+      color: var(--accent-color);
+      margin-bottom: 40px;
+      letter-spacing: 1.2px;
+    }
+
+    nav a {
       display: block;
-      font-weight: 400;
-      font-size: 0.85rem;
-      color: #6c757d;
-      margin-top: 4px;
+      margin: 20px 0;
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.1rem;
+      padding-left: 12px;
+      border-left: 4px solid transparent;
+      transition: all 0.3s ease;
+      user-select: none;
+      cursor: pointer;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      color: #000;
+      border-left-color: var(--accent-color);
+      background-color: var(--hover-bg);
+    }
+
+    nav a:hover[href="#about"] ~ main #about-header,
+    nav a:hover[href="#portfolio"] ~ main #portfolio-header {
+      background-color: var(--highlight-bg);
     }
 
     main {
-      max-width: 640px;
-      margin: 50px auto 70px;
-      padding: 0 20px;
+      flex-grow: 1;
+      padding: 60px 50px;
+      overflow-y: auto;
+      background: var(--bg);
     }
 
     section {
-      background: white;
-      border-radius: 12px;
-      padding: 30px 25px;
+      background: var(--card-bg);
+      padding: 40px;
       margin-bottom: 40px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
     }
 
     h2 {
-      color: #6c757d;
-      margin-top: 0;
-      margin-bottom: 20px;
-      font-weight: 700;
+      font-size: 2rem;
+      margin-bottom: 24px;
+      color: var(--accent-color);
       letter-spacing: 0.5px;
-      font-size: 1.5rem;
+      transition: background-color 0.4s ease;
+      padding: 4px 8px;
+      border-radius: 6px;
+    }
+
+    .highlight {
+      background-color: var(--highlight-bg);
     }
 
     p {
+      color: #4b5563;
       font-size: 1rem;
-      color: #555;
-      max-width: 580px;
-      margin: 0 auto 15px;
+      line-height: 1.6;
     }
 
-    a {
-      color: #6c757d;
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.3s ease;
+    .project-item {
+      margin-bottom: 24px;
+      max-width: 700px;
     }
 
-    a:hover {
-      color: #495057;
-    }
-
-    a.button {
+    .project-title {
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 6px;
+      transition: background-color 0.4s ease;
       display: inline-block;
-      margin-top: 25px;
-      padding: 12px 30px;
-      background: #6c757d;
-      color: white;
-      border-radius: 30px;
-      font-weight: 600;
-      font-size: 1rem;
+      padding: 4px 6px;
+      border-radius: 4px;
+    }
+
+    .project-title.highlight {
+      background-color: var(--highlight-bg);
+    }
+
+    .project-title a {
+      color: var(--link-color);
       text-decoration: none;
-      transition: background 0.3s ease;
     }
 
-    a.button:hover {
-      background: #495057;
-    }
-
-    a.small-button {
-      display: inline-block;
-      padding: 6px ;
-      background: #dee2e6;
-      color: #333;
-      border-radius: 15px;
-      font-size: 10px;
-      font-weight: 500;
-      text-decoration: none;
-      transition: background 0.3s ease;
-    }
-
-    a.small-button:hover {
-      background: #ced4da;
+    .project-title a:hover,
+    .project-title a:focus {
+      color: var(--link-hover);
     }
 
     footer {
       text-align: center;
-      color: #999;
       font-size: 0.85rem;
-      margin-bottom: 25px;
+      color: #9ca3af;
+      margin-top: 20px;
       user-select: none;
     }
   </style>
 </head>
 <body>
 
-<header>
-  I'm Sidak
-  <small>Tech Enthusiast | Gamer | Coder | Student</small>
-</header>
+  <aside>
+    <div>
+      <h1>Sidak</h1>
+      <nav>
+        <a href="#about" onmouseenter="highlightHeader('about-header')">Profile</a>
+        <a href="#portfolio" onmouseenter="highlightHeader('portfolio-header')">Portfolio</a>
+      </nav>
+    </div>
+    <footer>© 2025 Sidak</footer>
+  </aside>
 
-<main>
-  <section id="about">
-    <h2>About Me</h2>
-    <p>
-      I’m Sidak — a tech enthusiast passionate about creating clean and modern websites. Alongside coding, I enjoy gaming and keeping up with the latest technology trends. Always eager to learn and grow, I strive to build projects that are both functional and visually appealing. Combining my love for tech and gaming inspires me to bring creativity and innovation to everything I do.
-    </p>
-  </section>
+  <main>
+    <section id="about">
+      <h2 id="about-header">Profile</h2>
+      <p>I’m Sidak — a tech enthusiast passionate about creating clean and modern websites. Alongside coding, I enjoy gaming and keeping up with the latest technology trends. Always eager to learn and grow, I strive to build projects that are both functional and visually appealing. Combining my love for tech and gaming inspires me to bring creativity and innovation to everything I do.</p>
+    </section>
 
-  <section id="projects">
-    <h2>Projects</h2>
-    <p><a href="https://sidakdeep-69.github.io/odin-project-2.0/" target="_blank" rel="noopener" class="small-button">Odin Recipe</a>
-    A simple, clean recipe page built with pure HTML and CSS. It reflects my understanding of layout structuring and semantic tags.</p>
-   <p>
-  <a href="https://sidakdeep-69.github.io/landing-page/" target="_blank" rel="noopener"  class="small-button">
-    Landing Page</a>
-     — A clean and modern landing page designed using only HTML and CSS, focused on layout and visuals.
-</p>
-  <p>
-    <a href="https://sidakdeep-69.github.io/Admin-Dashboard/" target="_blank" rel="noopener" class="small-button">
-      Admin Dashboard
-    </a> — A clean and responsive admin dashboard layout created using HTML and CSS. It features a modern UI structure with grid layout and organized components.
-  </p>
-</section>
+    <section id="portfolio">
+      <h2 id="portfolio-header">Portfolio</h2>
 
-  </section>
+      <div class="project-item">
+        <div class="project-title" id="title-1">
+          <a href="https://sidakdeep-69.github.io/odin-project-2.0/" target="_blank" rel="noopener">Odin Recipe</a>
+        </div>
+        <p onmouseenter="highlightTitle('title-1')">A minimalistic recipe website made with semantic HTML and CSS.</p>
+      </div>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>You can reach me via email at <a href="mailto:sidakdeep0804@gmail.com">sidakdeep0804@gmail.com</a></p>
-    <a href="mailto:sidak@sidak.site" class="button">Get in Touch</a>
-  </section>
-</main>
+      <div class="project-item">
+        <div class="project-title" id="title-2">
+          <a href="https://sidakdeep-69.github.io/landing-page/" target="_blank" rel="noopener">Landing Page</a>
+        </div>
+        <p onmouseenter="highlightTitle('title-2')">Clean, modern landing page with emphasis on layout and typography.</p>
+      </div>
 
-<footer>© 2025 Sidak</footer>
+      <div class="project-item">
+        <div class="project-title" id="title-3">
+          <a href="https://sidakdeep-69.github.io/Admin-Dashboard/" target="_blank" rel="noopener">Admin Dashboard</a>
+        </div>
+        <p onmouseenter="highlightTitle('title-3')">Responsive admin dashboard featuring grid layouts and clean UI.</p>
+      </div>
+
+    </section>
+  </main>
+
+  <script>
+    function highlightTitle(id) {
+      const title = document.getElementById(id);
+      if (!title) return;
+      title.classList.add('highlight');
+      setTimeout(() => title.classList.remove('highlight'), 1000);
+    }
+
+    function highlightHeader(id) {
+      const header = document.getElementById(id);
+      if (!header) return;
+      header.classList.add('highlight');
+      setTimeout(() => header.classList.remove('highlight'), 1000);
+    }
+  </script>
 
 </body>
 </html>
